@@ -1,8 +1,6 @@
-(ns bsuirfp.numeric_test
-  (:use clojure.test
-        bsuirfp.core
-        bsuirfp.numeric
-        ))
+(ns bsuirfp.test.numeric_test
+  (:use clojure.test bsuirfp.numeric)
+  )
 
 (deftest test_numeric_get_first_digit
   (testing "Get first digit"
@@ -43,7 +41,7 @@
 
 (deftest test_divisors
   (testing "Get divisors of int"
-    (is (= [1, 3761] (test_helper_divisors_normalize (get_divisors 3761) ))
+    (is (= [1, 3761] (test_helper_divisors_normalize (get_divisors 3761)))
       )
     (is (= [1, 2, 4, 8, 16, 32] (test_helper_divisors_normalize (get_divisors 32)))
       )
@@ -75,36 +73,45 @@
 
 (deftest test_get_common_divisors
   (testing "Get common divisors"
-    (is (= [1] (test_helper_get_common_divisors (get_common_divisors [3761 3762]) ))
+    (is (= [1] (test_helper_get_common_divisors (get_common_divisors [3761 3762])))
       )
-    (is (= [1, 2, 4, 8, 16, 32] (test_helper_get_common_divisors (get_common_divisors [32 64]) ))
+    (is (= [1, 2, 4, 8, 16, 32] (test_helper_get_common_divisors (get_common_divisors [32 64])))
       )
-    (is (= [1, 2, 4] (test_helper_get_common_divisors (get_common_divisors [32, 64, 12]) ))
+    (is (= [1, 2, 4] (test_helper_get_common_divisors (get_common_divisors [32, 64, 12])))
       )
+    )
   )
-)
 
 (deftest test_is_prime
   (testing "Check if number is prime"
-    (is (= true (is_prime 17) )
+    (is (= true (is_prime 17))
       )
-    (is (= false (is_prime 18) )
+    (is (= false (is_prime 18))
       )
-    (is (= false (is_prime 121) )
+    (is (= false (is_prime 121))
       )
-    (is (= false (is_prime 9) )
+    (is (= false (is_prime 9))
       )
-    (is (= true (is_prime 3) )
+    (is (= true (is_prime 3))
       )
-    (is (= true (is_prime 47) )
+    (is (= true (is_prime 47))
       )
     )
   )
 
 (deftest test_get_primes_from_to
   (testing "Get primes from M to N"
-    (is (= [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37] (get_primes_from_to 2 40) )
+    (is (= [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37] (get_primes_from_to 2 40))
       )
     )
   )
 
+;Посчитать сумму арифметической прогрессии с параметрами a0, d, n (a(i)=a(i-1)+d) без использования формулы суммы арифметической прогрессии.
+(deftest test_calc_progression
+  (testing "Calculate progression"
+    (is (= 18 (calc_progression :n 3 :a0 2 :d 4))
+      )
+    )
+  )
+
+; 10. Подсчитать число и сумму цифр целого N.

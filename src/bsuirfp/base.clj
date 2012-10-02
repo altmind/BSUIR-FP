@@ -1,5 +1,6 @@
 (ns bsuirfp.base
-  (:gen-class ))
+  (:gen-class)
+  )
 
 (defn remove_tail_head
   [list]

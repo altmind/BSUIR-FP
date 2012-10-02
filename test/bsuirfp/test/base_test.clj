@@ -1,8 +1,6 @@
-(ns bsuirfp.base_test
-  (:use clojure.test
-        bsuirfp.core
-        bsuirfp.base
-        ))
+(ns bsuirfp.test.base_test
+  (:use clojure.test bsuirfp.base)
+  )
 
 (deftest test_base_remove_tail_head
   (testing "Removes head and tail of list"

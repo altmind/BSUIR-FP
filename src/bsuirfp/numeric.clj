@@ -1,5 +1,6 @@
 (ns bsuirfp.numeric
-  (:gen-class ) (:use clojure.set))
+  (:gen-class)
+  (:use clojure.set))
 
 (defn get_first_digit
   [item]
@@ -72,4 +73,18 @@
     is_prime
     (range a (inc b))
     )
+  )
+
+(defn calc_progression [& {:keys [n a0 d]}]
+
+  (if (zero? n)
+    0
+    (+ a0
+      (calc_progression
+        :n (dec n)
+        :a0 (+ a0 d)
+        :d d)
+      )
+    )
+
   )
