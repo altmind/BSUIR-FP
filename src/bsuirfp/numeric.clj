@@ -1,4 +1,4 @@
-(ns clo3.numeric
+(ns bsuirfp.numeric
   (:gen-class ) (:use clojure.set))
 
 (defn get_first_digit

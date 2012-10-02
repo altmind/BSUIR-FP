@@ -1,4 +1,4 @@
-(ns clo3.core
+(ns bsuirfp.core
   (:gen-class))
 
 (defn -main

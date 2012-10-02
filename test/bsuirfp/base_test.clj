@@ -1,7 +1,7 @@
-(ns clo3.base_test
+(ns bsuirfp.base_test
   (:use clojure.test
-        clo3.core
-        clo3.base
+        bsuirfp.core
+        bsuirfp.base
         ))
 
 (deftest test_base_remove_tail_head

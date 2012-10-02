@@ -1,8 +1,8 @@
-(defproject clo3 "0.1.0-SNAPSHOT"
+(defproject bsuir-fp "0.1.0-SNAPSHOT"
 	:plugins [[lein-idea "1.0.1"]]
-  :description "FIXME: write description"
-  :url "http://example.com/FIXME"
+  :description "BSUIR FP assignments"
+  :url "http://github.com/altmind/BSUIR-FP"
   :license {:name "Eclipse Public License"
 			:url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.4.0"]]
-  :main clo3.core)
+  :main bsuirfp.core)

@@ -1,7 +1,7 @@
-(ns clo3.numeric_test
+(ns bsuirfp.numeric_test
   (:use clojure.test
-        clo3.core
-        clo3.numeric
+        bsuirfp.core
+        bsuirfp.numeric
         ))
 
 (deftest test_numeric_get_first_digit
