@@ -16,3 +16,19 @@
     )
   )
 
+(defn prompt-read [prompt]
+  (print (format "%s: " prompt))
+  (flush)
+  (read-line)
+  )
+
+(deftest test_shuffle
+  (testing "Test shuffle shuffles. May fail if random generates the same seq"
+    (is (not= (knuth-shuffle (range 1 100)) (knuth-shuffle (range 1 100)))
+      )
+    (let [in (seq(.split #"[\s,]" (prompt-read "Input array comma separated"))) out (knuth-shuffle in)]
+      (print out)
+      (is (not= in out))
+      )
+    )
+  )
