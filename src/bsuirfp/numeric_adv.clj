@@ -19,3 +19,17 @@
       )
     )
   )
+
+(defn deep_sum [list]
+  (reduce
+    (fn [col x]
+      (+ col (if
+               (coll? x)
+               (deep_sum x)
+               x
+               )
+        )
+      )
+    0
+    list)
+  )

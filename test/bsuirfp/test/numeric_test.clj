@@ -114,4 +114,18 @@
     )
   )
 
-; 10. Подсчитать число и сумму цифр целого N.
+;(-4 3 4 -1 0 6 2) -> (-4 2 3 -1 0 4 6)
+(deftest test_sort_positive
+  (testing "Test sort positive numbers"
+    (is (= [-4 2 3 -1 0 4 6] (sort_positive [-4 3 4 -1 0 6 2]))
+      )
+    (is (= [1 2 3 4] (sort_positive [4 3 2 1]))
+      )
+    (is (= [0 1 0 2 0 3 0 0 4] (sort_positive [0 4 0 3 0 2 0 0 1]))
+      )
+    (is (= [-1 -1 -1] (sort_positive [-1 -1 -1]))
+      )
+    (is (= [] (sort_positive []))
+      )
+    )
+  )

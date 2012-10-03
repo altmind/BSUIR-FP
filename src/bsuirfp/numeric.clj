@@ -1,5 +1,5 @@
 (ns bsuirfp.numeric
-  (:gen-class)
+  (:gen-class )
   (:use clojure.set))
 
 (defn get_first_digit
@@ -87,4 +87,42 @@
       )
     )
 
+  )
+; taken from https://github.com/richhickey/clojure-contrib/blob/95dddbbdd748b0cc6d9c8486b8388836e6418848/src/main/clojure/clojure/contrib/seq.clj#L51
+(defn ^:private indexed
+  "Returns a lazy sequence of [index, item] pairs, where items come
+  from 's' and indexes count up from zero.
+
+  (indexed '(a b c d))  =>  ([0 a] [1 b] [2 c] [3 d])"
+  [s]
+  (map vector (iterate inc 0) s))
+
+(defn ^:private bisect_positive_and_index [list]
+  (reduce
+    (fn [col x]
+      (if
+        (pos? (second x))
+        {
+          :indexes (conj (:indexes col) (first x))
+          :elements (conj (:elements col) (second x))
+          }
+        col
+        )
+      )
+    {:indexes [] :elements []}
+    (indexed list)
+    )
+  )
+
+(defn sort_positive [list]
+  (let [obj (bisect_positive_and_index list) sorted_values (sort (:elements obj))]
+    (println obj)
+    (reduce
+      (fn [col x]
+        (assoc col (second x) (nth sorted_values (first x)))
+        )
+      list
+      (indexed (:indexes obj))
+      )
+    )
   )
