@@ -12,11 +12,11 @@
 
 (defn knuth-shuffle [xs]
   (let [v (vec xs)]
-    (reduce
-      #(swap-elts %1 %2 (rand-range %2 (count %1)))
-      v
-      (range (count v))
-      )
+          (reduce
+            #(swap-elts %1 %2 (rand-range %2 (count %1)))
+            v
+            (range (count v))
+            )
     )
   )
 
